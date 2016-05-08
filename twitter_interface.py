@@ -25,7 +25,7 @@ def tweet_images_in_folder(folder_name):
                 print image
                 image_parts = image.split('/')
                 image_name = image_parts[1].replace('.png','')
-                api.update_with_media(image)
+                api.update_with_media(image, status = image_name)
                 time.sleep(1)
             except Exception, e:
                 print 'exception', e
