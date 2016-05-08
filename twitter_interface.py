@@ -21,7 +21,10 @@ def tweet_images_in_folder(folder_name):
         #Takes the folder where your images are as the input and tweets all files in it.
         images = glob.glob(folder + "*")
         for image in images:
-            print image
-            api.update_with_media(image)
-            time.sleep(1)
+            try:
+                print image
+                api.update_with_media(image)
+                time.sleep(1)
+            except:
+                print 'exception'
     tweet_all(folder_name)
