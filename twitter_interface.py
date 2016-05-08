@@ -2,6 +2,8 @@ import tweepy
 import glob
 import random
 import os
+import time
+
 #Personal, every user should complete.
 def tweet_images_in_folder(folder_name):
     api_key = os.environ['TWITTER_API_KEY']
@@ -18,6 +20,8 @@ def tweet_images_in_folder(folder_name):
     def tweet_all(folder):
         #Takes the folder where your images are as the input and tweets all files in it.
         images = glob.glob(folder + "*")
+
         for image in images:
             api.update_with_media(image)
+            time.sleep(1)
     tweet_all(folder_name)

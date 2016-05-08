@@ -1,6 +1,5 @@
 import pandas
 import matplotlib.pyplot as plt
-import matplotlib.dates as dates
 import datetime
 import plot_graph
 
@@ -22,7 +21,8 @@ def analyse_and_plot_graph(xls_file_name):
 
     count = 0
     for group in groups:
-        file_name = group[1]['issuer'].values[0]
+        file_name = group[1]['issuer'].values[0].replace('.', '\.')
+        file_name = file_name.strip()
         holderGroups = group[1].groupby(by=['pos_holder'])
         uniqueHolders = list(set(group[1]['pos_holder'].values))
 
