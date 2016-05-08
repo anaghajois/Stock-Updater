@@ -23,8 +23,10 @@ def tweet_images_in_folder(folder_name):
         for image in images:
             try:
                 print image
+                image_parts = image.split('/')
+                image_name = image_parts[1].replace('.png','')
                 api.update_with_media(image)
                 time.sleep(1)
-            except:
-                print 'exception'
+            except Exception, e:
+                print 'exception', e
     tweet_all(folder_name)
