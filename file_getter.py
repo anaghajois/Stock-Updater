@@ -3,7 +3,7 @@ from datetime import timedelta,date
 import analyse_data
 
 def get_excel_file():
-    req_date = date.today()  - timedelta(2)
+    req_date = date.today() # - timedelta(2)
     if req_date.weekday()>=5:
         print "Weekend"
         return
