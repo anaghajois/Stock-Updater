@@ -15,7 +15,7 @@ def eq_date_range(start, end, intv):
     yield end
 
 def analyse_and_plot_graph(xls_file_name):
-    df = pandas.read_excel('files/' + xls_file_name, 'Blankningar fi.se', index_col=None, na_values=['NA'],
+    df = pandas.read_excel(xls_file_name, 'Blankningar fi.se', index_col=None, na_values=['NA'],
                            header=6, skiprows=5)
     df.columns = ['pub_date', 'pos_holder', 'issuer', 'ISIN', 'percent', 'pos_date', 'comment']
     groups = df.groupby(df['issuer'].str.lower())
