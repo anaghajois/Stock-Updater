@@ -23,6 +23,7 @@ def analyse_and_plot_graph(xls_file_name):
     for group in groups:
         file_name = group[1]['issuer'].values[0]
         file_name = file_name.strip()
+        print file_name
         file_name = file_name.encode('utf-8')
         holderGroups = group[1].groupby(by=['pos_holder'])
         uniqueHolders = list(set(group[1]['pos_holder'].values))
@@ -31,7 +32,7 @@ def analyse_and_plot_graph(xls_file_name):
         pos_dates = []
         percents = []
         for dateStr in dateStrs:
-            print pandas.to_datetime(dateStr)
+            #print pandas.to_datetime(dateStr)
             pos_dates.append(pandas.to_datetime(dateStr))
         unique_dates = list(set(pos_dates))
         today = datetime.datetime.combine(datetime.date.today(), datetime.datetime.min.time())
@@ -68,8 +69,8 @@ def analyse_and_plot_graph(xls_file_name):
                 pass
 
         #print the items
-        for item in unique_items:
-            print item
+        #for item in unique_items:
+        #    print item
 
 
         newDF = pandas.DataFrame.from_items(unique_items, orient='index', columns = uniqueHolders)
