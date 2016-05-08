@@ -3,13 +3,15 @@ from datetime import timedelta,date
 import analyse_data
 
 def get_excel_file():
-    url_handle = urllib.URLopener()
-    url = "http://www.fi.se/upload/50_Marknadsinfo/Blankning/Korta_positioner_"
-    if date.today().weekday()>=5:
+    req_date = date.today() - timedelta(2)
+    if req_date.weekday()>=5:
         print "Weekend"
         return
-    date = date.today() - timedelta(1)
-    current_date = date.strftime('%Y-%m-%d')
+
+    current_date = req_date.strftime('%Y-%m-%d')
+
+    url_handle = urllib.URLopener()
+    url = "http://www.fi.se/upload/50_Marknadsinfo/Blankning/Korta_positioner_"
     url += (current_date + '.xls')
     print url
     save_url = 'files/' + current_date +".xls"
