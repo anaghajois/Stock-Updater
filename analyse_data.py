@@ -23,7 +23,7 @@ def analyse_and_plot_graph(xls_file_name):
     for group in groups:
         file_name = group[1]['issuer'].values[0]
         file_name = file_name.strip()
-        file_name = file_name.decode('utf-8')
+        file_name = file_name.encode('utf-8')
         holderGroups = group[1].groupby(by=['pos_holder'])
         uniqueHolders = list(set(group[1]['pos_holder'].values))
 
